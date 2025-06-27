@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
 
 const users = [];
-const JWT_SECRET = 'shiningsun';
+const JWT_SECRET = process.env.JWT_SECRET;
 exports.register = async(req, res) => {
     const errors = validationResult(req).formatWith(({msg, path}) => {
         return {msg, path};
@@ -62,3 +62,9 @@ exports.login = async(req, res) => {
 
     res.json({token});
 };
+
+exports.getMe = (req, res) => {
+    res.json({
+        user: req.user
+    });
+}
