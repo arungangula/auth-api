@@ -47,13 +47,20 @@ node index.js
 ```
 Server will run at: http://localhost:3002
 
+## Postman Collection
+A Postman collection file is included to make testing easier.
+1. Open Postman
+2. Click Import
+3. Select the file: ```auth-api.postman_collection.json```
+4. Use the predefined requests to test the API
+
+
 ## API Endpoints
 POST /api/auth/register<br>
 Register a new user.<br>
 
 Request Body
-```bash
-json
+```json
 {
   "username": "john",
   "password": "secret123"
@@ -64,8 +71,7 @@ POST /api/auth/login <br>
 Login to receive a JWT token.<br>
 
 Request Body
-```bash
-json
+```json
 {
   "username": "john",
   "password": "secret123"
@@ -73,7 +79,7 @@ json
 ```
 
 Response
-```bash
+```json
 {
   "token": "your.jwt.token"
 }
@@ -83,14 +89,12 @@ GET /api/auth/me<br>
 Get the current logged-in user.<br>
 
 Headers
-```bash
-http
+```http
 Authorization: Bearer <your_token>
 ```
 
 Response
-```bash
-json
+```json
 {
   "user": {
     "id": 1,
